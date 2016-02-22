@@ -1,3 +1,7 @@
+
+*.swp
+
+dist/
 # Logs
 logs
 *.log

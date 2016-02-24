@@ -4,11 +4,20 @@ var jade = require('gulp-jade');
 var plugins = require('gulp-load-plugins')();
 var browserSync = require('browser-sync').create();
 var webpack = require('gulp-webpack');
+var compass = require('gulp-compass');
 //var webpack = require('webpack');
 
 gulp.task('sass',function(){
-  return gulp.src('./src/sass/main.sass')
-    .pipe(sass().on('error',sass.logError))
+  return gulp.src('./src/sass/*.scss')
+   .pipe(compass({
+        config_file: './config.rb',
+        css: 'dist/css',
+        sass: 'src/sass'
+    }))
+    .on('error',function(error){
+      console.log(error); 
+    })
+   //.pipe(sass().on('error',sass.logError))
     .pipe(gulp.dest('./dist/css'));
 });
 
@@ -27,7 +36,7 @@ gulp.task('webpack',function(){
 });
 
 gulp.task('sass:watch',function(){
-  gulp.watch('./src/sass/**/*.sass',['sass'])
+  gulp.watch('./src/sass/**/*.scss',['sass'])
   gulp.watch('./src/jade/**/*.jade',['jade'])
 })
 

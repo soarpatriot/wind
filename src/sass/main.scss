@@ -1,4 +1,29 @@
+@import "compass";
 
+@include global-reset();
 body{
+  font-size: 14px;
   color: red;
+}
+
+.sign-in{
+  padding: 15px;
+  border: 1px solid #e1e8ed;
+}
+
+.text-input{
+  border: 1px solid #ccd6dd;
+  height: 2em;
+  line-height: 2em;
+  padding: 0 0.6em;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  &:focus{
+    border: 1px solid #ccd6dd;
+    outline: 0;
+    box-shadow: inset 0 1px 0 #eee,#fff 0 1px 0;
+  }
+}
+.input-group{
+  padding: 10px;
 }

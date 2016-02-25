@@ -9,11 +9,13 @@ block title
 block content 
   div
     img(src="./images/wind.svg",height="256",alt="Nice green circle")
-  form 
-    p
-      input(type="text")
 
-    p
-      input(type="password")
-    p
-      button(type="button") 登录
+  .sign-in
+    form 
+      p.input-group
+        input(type="text",class="text-input")
+
+      p.input-group
+        input(type="password",class="text-input")
+      p
+        button(type="button") 登录

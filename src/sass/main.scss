@@ -1,14 +1,46 @@
 @import "compass";
-
+@import "media";
 @include global-reset();
-body{
-  font-size: 14px;
-  color: red;
+
+* {
+  @include box-sizing(border-box);
 }
 
+body{
+  font-size: 14px;
+  background-color: #00BFFF;
+}
+
+.container{
+  position: relative;
+  padding: 0 15px;
+  margin: 0 auto; 
+  width: 100%;
+  @include large {
+    width: 1200px;
+  }; 
+  @include desktop {
+    width: 100%;
+  };
+  @include tablet {
+    width: 100%;
+  } 
+  @include mobile {
+    width: 100%;
+  } 
+}
 .sign-in{
+  float: right;
+  margin-right: 200px;
+  width: 300px;
   padding: 15px;
   border: 1px solid #e1e8ed;
+  background-color: #FFFFFF;
+  @include mobile {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  } 
 }
 
 .text-input{

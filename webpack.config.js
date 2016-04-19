@@ -1,40 +1,51 @@
-var ExtractTextPlugin = require('extrat-text-webpack-plugin');
 var path = require('path');
 var webpack = require('webpack');
 
-module.exports = {
-  entry: "./entry.js",
+const merge = require('webpack-merge')
+const TAEGET = process.env.npm_lifecycle_event;
+
+const PATHS = {
+  app: path.join(__dirname, 'src'),
+  build: path.join(__dirname,'dist')
+}
+const common = {
+  entry: './entry.js',
   output: {
-    path: __dirname + "/dist",
+    path: PATHS.build,
     filename: "js/bundle.js"
   },
   module: {
-        loaders: [
-                
-
-                //{ test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
-
-                {   test: /\.(css)$/,
-                    loader: ExtractTextPlugin.extract("style-loader",
-                        "css-loader")
-                },
-                {
-                    test: /\.(otf|eot|svg|ttf|woff|woff2)$/,
-                    loader: 'file?name=./fonts/[hash].[ext]'
-
-                },
-                {
-                    test: /\.(ico|gif|png|jpe?g)$/,
-                    loader: 'file?name=./images/[hash].[ext]'
-
-                }
-        ]
+    loaders: [
+      {
+        test: /\.scss$/,
+        loaders: ["style", "css", "sass"]
+      },
+      { test: /\.jade$/, loader: "jade-loader" }
+    ]
   },
-  plugins: [
-
-        new ExtractTextPlugin("styles.css", {
-            allChunks: true
-        })
-
-  ]
+  sassLoader: {
+    includePaths: [path.resolve(__dirname, "./src/sass")]
+  }
+ 
 }
+if(TAEGET==='start' || !TAEGET){
+  module.exports = merge(common,{
+    devServer:{
+      contentBase: PATHS.build,
+      historyApiFallback:true,
+      hot:true,
+      inline:true,
+      progress:true,
+      stats: 'errors-only',
+      host: process.env.HOST,
+      port: process.env.PORT
+    },
+    plugins: [
+      new webpack.HotModuleReplacementPlugin()
+    ]
+  });
+}
+if(TAEGET==='build'){
+  module.exports = merge(common,{});
+}
+

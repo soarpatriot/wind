@@ -1,71 +1,8 @@
+
 @import "compass";
-@import "media";
 @include global-reset();
-
-* {
-  @include box-sizing(border-box);
-}
-html {
-    height: 100%
-}
-body{
-  font-size: 14px;
-  position: relative;
-  height: 100%;
-  overflow: hidden;
-  //background-color: #00BFFF;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  @include background-image(linear-gradient(to top left,white, #00bfff));
-}
+@import "media";
+@import "button";
+@import "site";
 
 
-.container{
-  position: relative;
-  padding: 0 15px;
-  margin: 0 auto; 
-  width: 100%;
-  @include clearfix;
-  @include large {
-    width: 1200px;
-  }; 
-  @include desktop {
-    width: 100%;
-  };
-  @include tablet {
-    width: 100%;
-  } 
-  @include mobile {
-    width: 100%;
-  } 
-}
-.sign-in{
-  float: right;
-  margin-right: 200px;
-  width: 300px;
-  padding: 15px;
-  border: 1px solid #e1e8ed;
-  background-color: #FFFFFF;
-  @include mobile {
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
-  } 
-}
-
-.text-input{
-  border: 1px solid #ccd6dd;
-  height: 2em;
-  line-height: 2em;
-  padding: 0 0.6em;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-  &:focus{
-    border: 1px solid #ccd6dd;
-    outline: 0;
-    box-shadow: inset 0 1px 0 #eee,#fff 0 1px 0;
-  }
-}
-.input-group{
-  padding: 10px;
-}

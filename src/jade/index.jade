@@ -10,14 +10,19 @@ block content
   .hot
   .container.home
     div
-      img(src="./images/wind.svg",height="256",alt="Nice green circle")
+      //
+        img(src="./images/wind.svg",height="256",alt="Nice green circle")
 
     .sign-in
       form 
         p.input-group
-          input(type="text",class="text-input")
+          input(type="text",class="text-input text-block")
 
         p.input-group
-          input(type="password",class="text-input")
-        p
-          button(type="button") 登录12
+          input(type="password",class="text-input text-block")
+        .remember
+          label
+            input(type="checkbox")
+            span 记住我
+        .pull-right
+          button(type="button",class="btn btn-blue") 登录

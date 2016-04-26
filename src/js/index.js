@@ -3,15 +3,15 @@ import React, {Component, PropTypes}  from 'react'
 
 import ReactDom from 'react-dom'
 import {createStore} from 'redux'
-import {Provider, connetct}  from 'react-redux'
+import {Provider, connect}  from 'react-redux'
 
 class Counter extends Component{
   render(){
     const {value, onIncreaseClick } = this.props
     return (
       <div>
-        <span{value}></span>
-        <button onClick={onIncreaseClick}Increase</button>
+        <span>{value}</span>
+        <button onClick={onIncreaseClick}>Increase</button>
       </div> 
     )
   }
@@ -37,18 +37,18 @@ function counter(state={count:0},action){
 let store = createStore(counter)
 
 function mapStateToProps(state){
-  function{
+  return {
     value: state.count
   }
 }
 
 function mapDispatchToProps(dispatch){
-  function {
+  return {
     onIncreaseClick: ()=> dispatch(increaseAction)
   }
 }
   
-let App = connetct(
+let App = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Counter)

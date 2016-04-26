@@ -1,4 +1,4 @@
 
 
-require("./src/js/hello.js");
-var tmp = require("!jade!./src/jade/index.jade");
+require("./src/js/index.js");
+//var tmp = require("!jade!./src/jade/index.jade");

@@ -11,9 +11,9 @@ const PATHS = {
 const common = {
   devtool: 'eval',
   entry: [
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server',
-    './index'
+    //'webpack-dev-server/client?http://localhost:3000',
+    //'webpack/hot/only-dev-server',
+    './entry.js'
   ],
   //'./entry.js',
   output: {

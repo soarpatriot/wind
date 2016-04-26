@@ -9,13 +9,25 @@ const PATHS = {
   build: path.join(__dirname,'dist')
 }
 const common = {
-  entry: './entry.js',
+  devtool: 'eval',
+  entry: [
+    'webpack-dev-server/client?http://localhost:3000',
+    'webpack/hot/only-dev-server',
+    './index'
+  ],
+  //'./entry.js',
   output: {
     path: PATHS.build,
     filename: "js/bundle.js"
   },
   module: {
     loaders: [
+      {
+        test: /\.js$/,
+        loaders: ['react-hot','babel'],
+        exclude: /node_modules/,
+        include: __dirname
+      },
       {
         test: /\.scss$/,
         loaders: ["style", "css", "sass"]
@@ -41,7 +53,8 @@ if(TAEGET==='start' || !TAEGET){
       port: process.env.PORT
     },
     plugins: [
-      new webpack.HotModuleReplacementPlugin()
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NoErrorsPlugin()
     ]
   });
 }

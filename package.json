@@ -3,6 +3,7 @@
   "dependencies": {
     "extract-text-webpack-plugin": "^1.0.1",
     "jade": "^1.11.0",
+    "jquery": "^2.2.3",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-redux": "^4.4.5",
@@ -29,6 +30,7 @@
     "gulp-load-plugins": "^1.2.0",
     "gulp-sass": "^2.2.0",
     "gulp-webpack": "^1.5.0",
+    "html-webpack-plugin": "^2.16.1",
     "image-webpack-loader": "^1.6.3",
     "jade-html-loader": "0.0.3",
     "jade-loader": "^0.8.0",
@@ -44,6 +46,6 @@
   },
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server --progress --inline --hot"
   }
 }

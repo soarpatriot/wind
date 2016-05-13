@@ -5,22 +5,8 @@ import ReactDom from 'react-dom'
 import {createStore} from 'redux'
 import {Provider, connect}  from 'react-redux'
 
-class Counter extends Component{
-  render(){
-    const {value, onIncreaseClick } = this.props
-    return (
-      <div>
-        <span>{value}</span>
-        <button onClick={onIncreaseClick}>Increase</button>
-      </div> 
-    )
-  }
-}
+import Counter from './counter.js'
 
-Counter.PropTypes = {
-  value: PropTypes.number.isRequired,
-  onIncreaseClick: PropTypes.func.isRequired
-}
 
 const increaseAction = {type:'increase'}
 
@@ -28,7 +14,7 @@ function counter(state={count:0},action){
   let count = state.count
   switch (action.type){
     case 'increase':
-      return {count: count+1}
+      return {count: count+2}
     default:
       return state
   }

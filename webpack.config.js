@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge')
 const TAEGET = process.env.npm_lifecycle_event;
 
@@ -11,9 +12,11 @@ const PATHS = {
 const common = {
   devtool: 'eval',
   entry: [
-    //'webpack-dev-server/client?http://localhost:3000',
-    //'webpack/hot/only-dev-server',
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/only-dev-server',
     './entry.js'
+    //index:['webpack/hot/dev-server','./entry.js'],
+    //page2:['webpack/hot/dev-server','./page2.js']
   ],
   //'./entry.js',
   output: {
@@ -26,13 +29,13 @@ const common = {
         test: /\.js$/,
         loaders: ['react-hot','babel'],
         exclude: /node_modules/,
-        include: __dirname
+        include: path.join(__dirname, 'src')
       },
       {
         test: /\.scss$/,
         loaders: ["style", "css", "sass"]
       },
-      { test: /\.jade$/, loader: "jade-loader" }
+      { test: /\.jade$/, loader: "jade" }
     ]
   },
   sassLoader: {
@@ -61,4 +64,3 @@ if(TAEGET==='start' || !TAEGET){
 if(TAEGET==='build'){
   module.exports = merge(common,{});
 }
-

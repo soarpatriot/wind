@@ -1,6 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
-
+var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge')
 const TAEGET = process.env.npm_lifecycle_event;
@@ -12,7 +12,7 @@ const PATHS = {
 const common = {
   devtool: 'eval',
   entry: [
-    'webpack-dev-server/client?http://localhost:8080',
+    'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
     './entry.js'
     //index:['webpack/hot/dev-server','./entry.js'],

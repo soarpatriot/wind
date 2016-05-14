@@ -6,7 +6,7 @@ export default class Counter extends Component{
     return (
       <div>
         <span>{value}</span>
-        <button onClick={onIncreaseClick}>Increas</button>
+        <button onClick={onIncreaseClick}>IncreaseOk23ff</button>
 
       </div> 
     )

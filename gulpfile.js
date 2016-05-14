@@ -14,14 +14,7 @@ gulp.task("webpack",function(callback){
     //var compiler = webpack(require('./webpack.config.js'));
     var config = require('./webpack.config');
     new WebpackDevServer(webpack(config), {
-      publicPath: config.output.publicPath,
-      hot: true,
-      noInfo: false,
-      historyApiFallback: true,
-      stats: {
-        colors: true
-      }
-
+      contentBase: "./dist"
         // server and middleware options
     }).listen(3000, "localhost", function(err) {
         if(err) throw new gutil.PluginError("webpack-dev-server", err);

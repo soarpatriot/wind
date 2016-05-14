@@ -7,7 +7,8 @@ const TAEGET = process.env.npm_lifecycle_event;
 
 const PATHS = {
   app: path.join(__dirname, 'src'),
-  build: path.join(__dirname,'dist')
+  build: path.join(__dirname,'dist'),
+  publicPath: path.join(__dirname,'dist')
 }
 const common = {
   devtool: 'eval',
@@ -20,6 +21,7 @@ const common = {
   ],
   //'./entry.js',
   output: {
+    publicPath: 'http://localhost:3000/dist/',
     path: PATHS.build,
     filename: "js/bundle.js"
   },
@@ -46,10 +48,12 @@ const common = {
 if(TAEGET==='start' || !TAEGET){
   module.exports = merge(common,{
     devServer:{
+      publicPath: 'http://localhost:3000/dist/',
       contentBase: PATHS.build,
       historyApiFallback:true,
       hot:true,
       inline:true,
+      noInfo: false,
       progress:true,
       stats: 'errors-only',
       host: process.env.HOST,
@@ -57,7 +61,14 @@ if(TAEGET==='start' || !TAEGET){
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
-      new webpack.NoErrorsPlugin()
+      new webpack.NoErrorsPlugin(),
+      new BrowserSyncPlugin({
+      // browse to http://localhost:3000/ during development, 
+      // ./public directory is being served 
+        host: 'localhost',
+        port: 3000,
+        server: { baseDir: ['dist'] }
+      })
     ]
   });
 }

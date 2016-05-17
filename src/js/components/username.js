@@ -1,9 +1,8 @@
-
 import React, {Component, PropTypes}  from 'react'
 import ReactDom from 'react-dom'
 import { connect } from 'react-redux' 
-import { login } from '../actions/actions' 
-export default class Login extends Component{
+
+export default class Username extends Component{
   render(){
     const {dispatch, name, username, password, remember, onLoginClick } = this.props
     return (

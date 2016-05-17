@@ -1,7 +1,13 @@
 
-export const LOGIN = {type:'LOGIN'}
+export const LOGIN = 'LOGIN';
 
-export function login(){
-  console.log('login');
-  return {type: LOGIN };
+export function loginAction(username,password,rememberMe){
+  console.log('username action :  '+ username);
+  console.log('username action :  '+ password);
+  var user = {
+    username: username,
+    password: password,
+    rememberMe: rememberMe
+  }
+  return {type: LOGIN , info: user};
 }

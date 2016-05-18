@@ -4,9 +4,12 @@ import ReactDom from 'react-dom'
 
 export default class Tip extends Component{
   render(){
-    const { warn } = this.props
+    const { warn, visible} = this.props
     return (
-          <div>
+          <div className='alert alert-danger'
+            style={{
+              visibility: visible? 'visible': 'hidden' 
+           }}>
             {warn}
           </div>
     )
@@ -15,7 +18,8 @@ export default class Tip extends Component{
 }
 
 Tip.PropTypes = {
-  warn: PropTypes.string.isRequired
+  warn: PropTypes.string.isRequired,
+  visible: PropTypes.bool.isRequired
 }
 
 

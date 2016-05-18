@@ -8,10 +8,10 @@ export default class LoginForm extends Component{
     return (
         <form>
           <div className="input-group">
-            <input type="text" className="text-input text-block" ref='username' />
+            <input type="text" className="text-input text-block" placeholder='用户名/邮箱/手机号码/工号' ref='username' />
           </div>
           <div className="input-group">
-            <input type="password" className="text-input text-block" ref='password' />
+            <input type="password" className="text-input text-block" placeholder='密码' ref='password' />
           </div>
           <div className="remember">
             <label>

@@ -3,7 +3,9 @@ import { combineReducers } from 'redux'
 import { LOGIN } from '../actions/actions'
 import { doLogin } from './login-reducer'
 
-function operate(state={code:0,message:'',username:'',password:'',warn:''},action){
+let info = {code:0,message:'',username:'',password:'',warn:'提示 ',visible:false}
+
+function operate(state=info,action){
   let username = state.username
   console.log(state); 
   console.log('username:'+ username); 
@@ -11,7 +13,7 @@ function operate(state={code:0,message:'',username:'',password:'',warn:''},actio
   console.log("login:"+ LOGIN); 
   switch (action.type){
     case LOGIN:
-      return doLogin(action.username,action.password,action.rememberMe)
+      return doLogin(state, action.username,action.password,action.rememberMe)
     default:
       return state
   }

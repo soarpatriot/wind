@@ -46,8 +46,11 @@ body{
   margin-right: 200px;
   width: 300px;
   padding: 20px 20px;
-  border: 1px solid #e1e8ed;
-  background-color: #FFFFFF;
+  //border: 1px solid #e1e8ed;
+  //background-color: #FFFFFF;
+  background: rgba(255, 255, 255, .2);
+  border: 1px solid rgba(255, 255, 255, .3);
+  box-shadow: 0 3px 0 rgba(12, 12, 12, .03);
   @include mobile {
     float: none;
     margin-top: 100px;
@@ -75,13 +78,13 @@ body{
 .text-input{
   font-size: $base-font-size;
   border: 1px solid #ccd6dd;
-  height: 30px;
+  height: 34px;
   //line-height: 30px;
-  padding: 6px 6px;
+  padding: 6px 12px;
   box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   &:focus{
-    border: 1px solid #ccd6dd;
+    border: 1px solid #00bfff;
     outline: 0;
     box-shadow: inset 0 1px 0 #eee,#fff 0 1px 0;
   }

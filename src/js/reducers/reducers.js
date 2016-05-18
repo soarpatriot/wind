@@ -3,7 +3,7 @@ import { combineReducers } from 'redux'
 import { LOGIN } from '../actions/actions'
 import { doLogin } from './login-reducer'
 
-function operate(state={code:0,message:'',username:'aa',password:''},action){
+function operate(state={code:0,message:'',username:'',password:'',warn:''},action){
   let username = state.username
   console.log(state); 
   console.log('username:'+ username); 
@@ -11,7 +11,7 @@ function operate(state={code:0,message:'',username:'aa',password:''},action){
   console.log("login:"+ LOGIN); 
   switch (action.type){
     case LOGIN:
-      return doLogin(action.info)
+      return doLogin(action.username,action.password,action.rememberMe)
     default:
       return state
   }
@@ -21,4 +21,4 @@ const loginApp = combineReducers({
   operate 
 })
   
-export default loginApp
+export default operate

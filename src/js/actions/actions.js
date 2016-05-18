@@ -9,5 +9,5 @@ export function loginAction(username,password,rememberMe){
     password: password,
     rememberMe: rememberMe
   }
-  return {type: LOGIN , info: user};
+  return {type: LOGIN , username,password, rememberMe};
 }

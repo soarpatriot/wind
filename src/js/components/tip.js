@@ -2,7 +2,7 @@
 import React, {Component, PropTypes}  from 'react'
 import ReactDom from 'react-dom'
 
-export default class tip extends Component{
+export default class Tip extends Component{
   render(){
     const { warn } = this.props
     return (
@@ -14,5 +14,8 @@ export default class tip extends Component{
 
 }
 
+Tip.PropTypes = {
+  warn: PropTypes.string.isRequired
+}
 
 

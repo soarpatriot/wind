@@ -5,13 +5,13 @@ import { LOGIN, loginAction  } from './actions/actions'
 import LoginForm from './components/login-form'
 import Tip from './components/tip'
 
-export default class Login extends Component{
+class App extends Component{
   render(){
-    const {dispatch } = this.props
+    const {dispatch, warn} = this.props
     return (
       <div className="container home">
         <div className="sign-in">
-          <Tip />
+          <Tip warn={warn} />
           <LoginForm onLoginClick={(username,password,rememberMe)=> dispatch(loginAction(username,password,rememberMe))} />
         </div> 
       </div>
@@ -19,17 +19,17 @@ export default class Login extends Component{
   }
 }
 
+App.PropTypes = {
+  warn: PropTypes.string.isRequired
+}
 
 
 
-function mapStateToProps(state){
+
+function select(state){
+  console.log('state: '+ state.username)
   return {
-    warn: state.warn,
-    code: state.code,
-    message: state.message,
-    name: state.username,
-    password: state.password,
-    remember: state.remember
+    warn: state.warn
 
   }
 }
@@ -42,9 +42,7 @@ function mapDispatchToProps(dispatch){
 }
 
   
-export default connect(
-  mapStateToProps
-)(Login)
+export default connect(select)(App)
 
 
 

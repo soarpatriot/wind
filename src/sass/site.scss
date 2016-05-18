@@ -46,11 +46,9 @@ body{
   margin-right: 200px;
   width: 300px;
   padding: 20px 20px;
-  //border: 1px solid #e1e8ed;
-  //background-color: #FFFFFF;
   background: rgba(255, 255, 255, .2);
   border: 1px solid rgba(255, 255, 255, .3);
-  box-shadow: 0 3px 0 rgba(12, 12, 12, .03);
+  box-shadow: 0 5px 0 rgba(12, 12, 12, .03);
   @include mobile {
     float: none;
     margin-top: 100px;

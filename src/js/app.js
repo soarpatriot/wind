@@ -4,6 +4,7 @@ import { connect }  from 'react-redux'
 import { LOGIN, loginAction  } from './actions/actions'
 import LoginForm from './components/login-form'
 import LoginTitle from './components/login-title'
+import LoginForgot from './components/login-forgot'
 import Tip from './components/tip'
 
 class App extends Component{
@@ -12,10 +13,10 @@ class App extends Component{
     return (
       <div className="container home">
         <div className="sign-in">
-          <LoginTitle />
           <Tip warn={warn}
                visible={visible} />
           <LoginForm onLoginClick={(username,password,rememberMe)=> dispatch(loginAction(username,password,rememberMe))} />
+          <LoginForgot />
         </div> 
       </div>
     )

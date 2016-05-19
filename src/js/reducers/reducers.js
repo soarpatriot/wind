@@ -5,7 +5,7 @@ import { doLogin } from './login-reducer'
 
 let info = {code:0,message:'',username:'',password:'',warn:'提示 ',visible:false}
 
-function operate(state=info,action){
+export function operate(state=info,action){
   let username = state.username
   console.log(state); 
   console.log('username:'+ username); 
@@ -19,8 +19,7 @@ function operate(state=info,action){
   }
 }
 
-const loginApp = combineReducers({
-  operate 
-})
+export function add(state,action) {
+  return state
+}
   
-export default operate

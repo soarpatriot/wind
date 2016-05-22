@@ -13,16 +13,16 @@ export default class LoginForm extends Component{
           <div className="input-group">
             <input type="password" className="text-input text-block" placeholder='密码' ref='password' />
           </div>
-          <div className="remember">
+          <div className="input-group">
             <label>
               <input type="checkbox" ref='remember'/>
               <span>记住我</span>
             </label>
           </div>
-          <div className="pull-right">
-            <button type="button" 
+          <div className="input-group">
+            <button type="button " 
               onClick={(e)=> this.handleClick(e)} 
-              className="btn btn-blue">登录</button>
+              className="btn btn-blue btn-block">登录</button>
           </div>
         </form>
     )

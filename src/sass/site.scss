@@ -13,12 +13,24 @@ body{
   position: relative;
   height: 100%;
   overflow: hidden;
+}
+#root{
+  height: 100%;
+  position: relative;
+  > div{
+    position: relative;
+    height: 100%;
+  }
+}
+.login-back{
+  height: 100%;
+  overflow: hidden;
   //background-color: #00BFFF;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   @include background-image(linear-gradient(to top left,white, #00bfff));
-}
 
+}
 
 .container{
   position: relative;

@@ -11,6 +11,7 @@ class App extends Component{
   render(){
     const {dispatch, warn, visible} = this.props
     return (
+      <div className='login-back'>
       <div className="container home">
         <div className="sign-in">
           <Tip warn={warn}
@@ -18,6 +19,7 @@ class App extends Component{
           <LoginForm onLoginClick={(username,password,rememberMe)=> dispatch(loginAction(username,password,rememberMe))} />
           <LoginForgot />
         </div> 
+      </div>
       </div>
     )
   }

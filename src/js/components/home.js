@@ -1,11 +1,11 @@
 
 import React, {Component, PropTypes}  from 'react'
 import { Link} from 'react-router'
-export default class LoginForgot extends Component{
+export default class Home extends Component{
   render(){
     return (
           <p className='clearfix'> 
-            <Link className='link' to='/forgot'>忘记密码</Link>
+            <Link className='link' to='/forgot'>Home</Link>
           </p>
     )
   }

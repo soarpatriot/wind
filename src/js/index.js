@@ -37,7 +37,6 @@ const history = syncHistoryWithStore(browserHistory, store)
 
 ReactDom.render(
   <Provider store={store}>
-    <div>
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={Login}/>
@@ -46,7 +45,6 @@ ReactDom.render(
         <Route path="/bar" component={Bar}/>
       </Route>
     </Router>
-    </div>
   </Provider>,
 
   document.getElementById('root')

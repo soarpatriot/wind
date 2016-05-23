@@ -1,6 +1,8 @@
 
 import React, {Component, PropTypes}  from 'react'
 import ReactDom from 'react-dom'
+import {store,history} from '../history'
+import { routerMiddleware, push } from 'react-router-redux'
 
 export default class LoginForm extends Component{
   render(){
@@ -20,7 +22,7 @@ export default class LoginForm extends Component{
             </label>
           </div>
           <div className="input-group">
-            <button type="button " 
+            <button type="button" 
               onClick={(e)=> this.handleClick(e)} 
               className="btn btn-blue btn-block">登录</button>
           </div>
@@ -36,6 +38,7 @@ export default class LoginForm extends Component{
     const rememberNode = this.refs.remember
     const remember = rememberNode.value.trim()
     this.props.onLoginClick(username,password,remember)
+    store.dispatch(push('/home'))
   }
 }
 

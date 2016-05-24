@@ -6,7 +6,7 @@ export default class LoginTitle extends Component{
   render(){
     return (
           <p className='text-center margin-bottom20'>
-            登录
+            风云配送系统
           </p>
     )
   }

@@ -114,3 +114,51 @@ body{
 .pull-right{
   float: right;
 }
+
+.home-container{
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.menu-title{
+  height: 60px;
+}
+.nav{
+  list-style: none;
+  text-align: left;
+  a{
+    color: #333D40; 
+    text-decoration: none;
+    display: block;
+    padding: 15px 20px; 
+    &:hover, &.active{
+      background-color: #06ABE2;
+      cursor: pointer;
+      color: #fff; 
+    }
+ 
+  }
+  li{
+  }
+
+  ul{
+    display: none; 
+  }
+  .active > ul.nav {
+    display: block; 
+  }
+}
+.left{
+  width:18%;
+  position: relative;
+  float:left;
+  height: 100%;
+  @include background-image(linear-gradient(to top left,white, #00bfff));
+}
+.top{
+  width: 82%;
+  height: 60px;
+  position: relative;
+  float:left;
+  @include background-image(linear-gradient(to top left,white, #00bfff));
+}

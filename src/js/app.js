@@ -14,6 +14,7 @@ class App extends Component{
       <div className='login-back'>
       <div className="container home">
         <div className="sign-in">
+          <LoginTitle />
           <Tip warn={warn}
                visible={visible} />
           <LoginForm onLoginClick={(username,password,rememberMe)=> dispatch(loginAction(username,password,rememberMe))} />
